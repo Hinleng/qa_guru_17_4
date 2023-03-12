@@ -18,6 +18,8 @@ public class DemoqaTests {
     @Test
     void demoqaPracticeFormTest(){
         open("/automation-practice-form");
+        executeJavaScript("$('#fixedban').remove()");
+        executeJavaScript("$('footer').remove()");
         $(".row h5").shouldHave(text("Student Registration Form"));
         $("#firstName").setValue("David");
         $("#lastName").setValue("Hardy");
