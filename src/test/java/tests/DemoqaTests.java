@@ -1,13 +1,16 @@
 package tests;
 
 import org.junit.jupiter.api.Test;
+import pages.RegistrationPage;
 
 public class DemoqaTests extends TestBase {
+    RegistrationPage registrationPage = new RegistrationPage();
 
     @Test
     void demoqaPracticeFormTest() {
 
         registrationPage.openPage()
+                .removeBanner()
                 .setFirstName("David")
                 .setLastName("Hardy")
                 .setUserEmail("gaguru@guru.ru")

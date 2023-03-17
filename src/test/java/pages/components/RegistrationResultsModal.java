@@ -1,7 +1,5 @@
 package pages.components;
 
-import javax.swing.plaf.PanelUI;
-
 import static com.codeborne.selenide.Condition.appear;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;

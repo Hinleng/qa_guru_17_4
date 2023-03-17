@@ -16,7 +16,7 @@ public class RegistrationPage {
             firstNameInput = $("#firstName"),
             lastNameInput = $("#lastName"),
             userEmailInput = $("#userEmail"),
-            genterWrapperInput = $("#genterWrapper"),
+            genderWrapperInput = $("#genterWrapper"),
             userNumberInput = $("#userNumber"),
             dateOfBirthInput = $("#dateOfBirthInput"),
             subjectInput = $("#subjectsInput"),
@@ -30,9 +30,13 @@ public class RegistrationPage {
 
     public RegistrationPage openPage() {
         open("/automation-practice-form");
+        $(".row h5").shouldHave(text(titleText));
+        return this;
+    }
+
+    public RegistrationPage removeBanner() {
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
-        $(".row h5").shouldHave(text(titleText));
         return this;
     }
 
@@ -52,7 +56,7 @@ public class RegistrationPage {
     }
 
     public RegistrationPage setGender(String value) {
-        genterWrapperInput.$(byText(value)).click();
+        genderWrapperInput.$(byText(value)).click();
         return this;
     }
 
