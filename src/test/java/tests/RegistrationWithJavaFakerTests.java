@@ -18,7 +18,7 @@ public class RegistrationWithJavaFakerTests extends TestBase {
         String gender = faker.options().option("Male","Female","Other");
         String number = faker.phoneNumber().subscriberNumber(10);
         String day = String.format("%02d", faker.number().numberBetween(1, 28));
-        String month = faker.options().option("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");;
+        String month = faker.options().option("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
         String year = faker.number().numberBetween(1930,2000) + "";
         String object = faker.options().option("English", "Chemistry", "Computer Since", "Commerce", "Economics", "Social Studies");
         String hobby = faker.options().option("Sports", "Reading", "Music");
