@@ -13,7 +13,7 @@ public class RegistrationWithJavaFakerTests extends TestBase {
     RegistrationPage registrationPage = new RegistrationPage();
 
     @Test
-    @DisplayName("Заполнение Practice form в Demoqa")
+    @DisplayName("Filling out Practice form in Demoqa")
     void demoqaPracticeFormTest() {
         String userName = faker.name().firstName();
         String lastName = faker.name().lastName();
