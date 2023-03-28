@@ -2,6 +2,7 @@ package tests;
 
 import com.github.javafaker.Faker;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
 
@@ -13,6 +14,7 @@ public class RegistrationWithJavaFakerTests extends TestBase {
     RegistrationPage registrationPage = new RegistrationPage();
 
     @Test
+    @Tag("simple")
     @DisplayName("Filling out Practice form in Demoqa")
     void demoqaPracticeFormTest() {
         String userName = faker.name().firstName();
