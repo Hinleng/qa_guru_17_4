@@ -1,9 +1,11 @@
 package tests;
 
 import com.github.javafaker.Faker;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
 
+import static io.qameta.allure.Allure.step;
 import static tests.utils.RandomUtils.randomCityGenerator;
 
 public class RegistrationWithJavaFakerTests extends TestBase {
@@ -11,6 +13,7 @@ public class RegistrationWithJavaFakerTests extends TestBase {
     RegistrationPage registrationPage = new RegistrationPage();
 
     @Test
+    @DisplayName("Заполнение Practice form в Demoqa")
     void demoqaPracticeFormTest() {
         String userName = faker.name().firstName();
         String lastName = faker.name().lastName();
@@ -28,9 +31,12 @@ public class RegistrationWithJavaFakerTests extends TestBase {
         String city = randomCityGenerator(state);
 
 
-        registrationPage.openPage()
-                .removeBanner()
-                .setFirstName(userName)
+        step("Open registration form", () -> {
+            registrationPage.openPage()
+                    .removeBanner();
+        });
+        step("Fill form", () -> {
+        registrationPage.setFirstName(userName)
                 .setLastName(lastName)
                 .setUserEmail(email)
                 .setGender(gender)
@@ -42,7 +48,8 @@ public class RegistrationWithJavaFakerTests extends TestBase {
                 .setAddress(address)
                 .setStateAndCity(state, city)
                 .submit();
-
+        });
+        step("Check form results", () -> {
         registrationPage.verifyResultsModalAppears()
                 .verifyResult("Student Name", userName + " " + lastName)
                 .verifyResult("Student Email", email)
@@ -54,5 +61,6 @@ public class RegistrationWithJavaFakerTests extends TestBase {
                 .verifyResult("Picture", image)
                 .verifyResult("Address", address)
                 .verifyResult("State and City", state + " " + city);
+        });
     }
 }
